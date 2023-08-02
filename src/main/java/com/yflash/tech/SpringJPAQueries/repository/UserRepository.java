@@ -12,4 +12,9 @@ public interface UserRepository extends JpaRepository<UserEntity,Integer> {
     @Query(value = "SELECT * FROM USER u WHERE u.Id = :id", nativeQuery = true)         // native query
     UserEntity findUser(@Param("id") Integer id);
 
+
+    // Using entity name and fields for query rather than the actual table name and its columns for NamedQuery
+    @Query(value = "SELECT u FROM UserEntity u WHERE u.Id = :id")
+    UserEntity findUser(@Param("id") Integer id);
+
 }
