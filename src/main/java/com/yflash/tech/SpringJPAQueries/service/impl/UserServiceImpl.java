@@ -10,8 +10,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -25,7 +23,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserById(Integer id) {
-        UserEntity userEntity = userRepository.getReferenceById(id);
+        UserEntity userEntity = userRepository.findUser(id);
+        if(userEntity == null)
+            return null;
         return modelMapper.map(userEntity,User.class);
     }
 

@@ -9,6 +9,7 @@ import lombok.ToString;
 @Table(name = "USER")
 @Data
 @ToString
+@NamedQuery(name = "UserEntity.findUserById", query = "SELECT u FROM UserEntity u WHERE u.id = :id")
 public class UserEntity {
 
     @Id
