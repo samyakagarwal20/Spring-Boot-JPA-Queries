@@ -25,4 +25,9 @@ public class UserController {
         return new ResponseEntity<>(userService.getUserById(userRequest.getId()), HttpStatus.OK);
     }
 
+    @GetMapping(value = "/get-user-by-first-name", produces = "application/json")
+    ResponseEntity<List<User>> getUserByFirstName(@RequestParam("fName") String firstName) {
+        return new ResponseEntity<>(userService.getUserByFirstName(firstName), HttpStatus.OK);
+    }
+
 }
