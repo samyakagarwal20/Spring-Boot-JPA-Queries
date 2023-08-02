@@ -1,6 +1,5 @@
 package com.yflash.tech.SpringJPAQueries.controller;
 
-import com.yflash.tech.SpringJPAQueries.entity.UserEntity;
 import com.yflash.tech.SpringJPAQueries.model.in.GetUserRequest;
 import com.yflash.tech.SpringJPAQueries.model.out.User;
 import com.yflash.tech.SpringJPAQueries.service.UserService;
@@ -11,7 +10,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("/user")
