@@ -13,4 +13,9 @@ public interface UserRepository extends JpaRepository<UserEntity,Integer> {
     @Query(value = "SELECT u FROM UserEntity u WHERE u.Id = :id")                           // named query approach 1
     UserEntity findUser(@Param("id") Integer id);
 
+
+    // In this approach of NamedQuery, the query is defined at the entity level itself
+    @Query(name = "UserEntity.findUserById")
+    UserEntity findUser(@Param("id") Integer id);
+
 }
