@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface UserService {
     User getUserById(Integer id);
+    List<User> getUserByFirstName(String firstName);
 }

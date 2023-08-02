@@ -1,6 +1,5 @@
 package com.yflash.tech.SpringJPAQueries.controller;
 
-import com.yflash.tech.SpringJPAQueries.entity.UserEntity;
 import com.yflash.tech.SpringJPAQueries.model.in.GetUserRequest;
 import com.yflash.tech.SpringJPAQueries.model.out.User;
 import com.yflash.tech.SpringJPAQueries.service.UserService;
@@ -25,6 +24,11 @@ public class UserController {
     @GetMapping(value = "/get-user-by-id", produces = "application/json", consumes = "application/json")
     ResponseEntity<User> getUserById(@RequestBody GetUserRequest userRequest) {
         return new ResponseEntity<>(userService.getUserById(userRequest.getId()), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/get-user-by-first-name", produces = "application/json")
+    ResponseEntity<List<User>> getUserByFirstName(@RequestParam("fName") String firstName) {
+        return new ResponseEntity<>(userService.getUserByFirstName(firstName), HttpStatus.OK);
     }
 
 }
