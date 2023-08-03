@@ -11,9 +11,9 @@ import java.util.List;
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity,Integer> {
 
-//    @Query(value = "SELECT * FROM USER u WHERE u.Id = :id", nativeQuery = true)         // native query
 //    @Query(value = "SELECT u FROM UserEntity u WHERE u.Id = :id")                           // named query approach 1
-    @Query(name = "UserEntity.findUserById")                                           // named query appraoch 2 (query defined at entity level)
+//    @Query(name = "UserEntity.findUserById")                                           // named query appraoch 2 (query defined at entity level)
+    @Query(nativeQuery = true)         // native query
     UserEntity findUser(@Param("id") Integer id);
 
 
